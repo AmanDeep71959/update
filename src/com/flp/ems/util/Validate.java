@@ -87,29 +87,33 @@ public class Validate {
 
 	public static boolean validateaddress(String address){
 
-        if(address.matches("[a-zA-Z0-9_]+"))
+        if(address.matches("[a-zA-Z0-9-,]+"))
             return true;
         return false;	
 	}
 	
 	
-	public static boolean validateDepartment_id(String Department_id){
-		if(Department_id.matches("[0-9]+"))
-			return true;
+	public static boolean validateDepartment_id(int Department_id){
+		if(Department_id==1 | Department_id==2)
+				return true;
 		return false;
 	}
 	
 	
-	public static boolean validateProject_id(String Project_id){
-		if(Project_id.matches("[0-9]+"))
-			return true;
-		return false;
+	public static boolean validateProject_id(int Project_id){
+			if(Project_id==50 | Project_id==51 | Project_id==52 | Project_id==53)
+				return true;
+			return false;
 	}	
 		
-	public static boolean validateRole_id(String Role_id){
-			if(Role_id.matches("[0-9]+"))
+	public static boolean validateRole_id(int Role_id){
+		int i;
+		for(i=100;i<104;i++)
+		{
+			if(i==Role_id)
 				return true;
-			return false;	
+		}
+		return false;
 		
 	}	
 	

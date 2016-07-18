@@ -52,18 +52,22 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 		System.out.println("Employee Removed");}		
 	}
 		
-	public void SearchEmployee(String Kin_id)
+	public void SearchEmployee(String search)
 	{
-		Employee e=null;
+		//Employee e=null;
 		for(Employee emp:arrlist)
-		{
-			if(emp.equals(Kin_id))
-				e=emp;
+		{	 
+			String temp1=emp.getEmail_id();
+			String temp2=emp.getKin_id();
+			String temp3=emp.getName();
+			if(temp1.equals(search)|| temp2.equals(search)||temp3.equals(search))
+					
+				//e=emp;
+				System.out.println(emp);
 		}
-		System.out.println(e);
-		
-	}
-	
+			//if(e!=null)
+			//System.out.println(e);
+		}
 	
 	public void getAllEmployee()
 	{

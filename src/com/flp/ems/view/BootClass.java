@@ -13,17 +13,17 @@ public class BootClass {
 		System.out.println("2-Search Employee");
 		System.out.println("3-Modify Employee");
 		System.out.println("4-Remove Employee");
-		System.out.println("5-Employee view");
-		System.out.println("6-GetAllEmployee");
-		System.out.println("7-To Exit");
+		System.out.println("5-GetAllEmployee");
+		System.out.println("6-To Exit");
 		//user input
 		System.out.println("Enter the action");
 		Scanner s=new Scanner(System.in);
 		int userinput=s.nextInt();
-		if(userinput==7){break;}
+		if(userinput==6){break;}
 		
 		
 		menuSelection(userinput);
+
 		}
 	}
 	
@@ -36,8 +36,7 @@ public class BootClass {
 		case 2:UserInteraction.SearchEmployee();break;
 		case 3:UserInteraction.ModifyEmployee();break;
 		case 4:UserInteraction.RemoveEmployee();break;
-		case 5:UserInteraction.SearchEmployee();break;
-		case 6:UserInteraction.GetAllEmployee();break;
+		case 5:UserInteraction.GetAllEmployee();break;
 		default:System.out.println("invalid input");break;
 		}
 		}

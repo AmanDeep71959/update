@@ -9,11 +9,11 @@ public class Employee {
   private String Email_id;
   private String Phone_no;
   private String Date_of_birth;
-  private Date Date_of_Joining;
+  private String Date_of_Joining;
   private String Address;
   private int Department_id;
   private int Project_id;
-  private int Roles_id;
+  private int Role_id;
   Department department;
   Project project;
   Role role;
@@ -27,7 +27,7 @@ public class Employee {
 public String toString() {
 	return "Employee [Name=" + Name + ", Kin_id=" + Kin_id + ", Email_id=" + Email_id + ", Phone_no=" + Phone_no
 			+ ", Date_of_birth=" + Date_of_birth + ", Date_of_Joining=" + Date_of_Joining + ", Address=" + Address
-			+ ", Department_id=" + Department_id + ", Project_id=" + Project_id + ", Roles_id=" + Roles_id
+			+ ", Department_id=" + Department_id + ", Project_id=" + Project_id + ", Roles_id=" + Role_id
 			+ ", department=" + department + ", project=" + project + ", role=" + role + "]";
 }
 
@@ -70,9 +70,9 @@ public String toString() {
 		return result;
 	}
 	
-	
-	public boolean equals(String Kin_id) {
-		if(this.Kin_id.equals(Kin_id))
+	@Override
+	public boolean equals(Object search) {
+		if(this.Kin_id.equals(search)| this.Email_id.equals(search) | this.Name.equals(search))
 			return true;
 		else 
 			return false;
@@ -134,12 +134,12 @@ public String toString() {
 	}
 	
 	
-	public Date getDate_of_Joining() {
+	public String getDate_of_Joining() {
 		return Date_of_Joining;
 	}
 	
 	
-	public void setDate_of_Joining(Date date_of_Joining) {
+	public void setDate_of_Joining(String date_of_Joining) {
 		Date_of_Joining = date_of_Joining;
 	}
 	
@@ -173,12 +173,12 @@ public String toString() {
 		Project_id = project_id;
 	}
 	
-	public int getRoles_id() {
-		return Roles_id;
+	public int getRole_id() {
+		return Role_id;
 	}
 	
-	public void setRoles_id(int roles_id) {
-		Roles_id = roles_id;
+	public void setRole_id(int roles_id) {
+		Role_id = roles_id;
 	}
 	
 
