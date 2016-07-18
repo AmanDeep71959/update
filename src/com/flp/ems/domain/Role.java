@@ -3,6 +3,15 @@ package com.flp.ems.domain;
 public class Role {
 	int Role_id;
 	String Name;
+	
+	
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Role [Name=" + Name + ", Description=" + Description + "]";
+	}
 	public int getRole_id() {
 		return Role_id;
 	}

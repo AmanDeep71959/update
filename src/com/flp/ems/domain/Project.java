@@ -11,8 +11,14 @@ public class Project {
 	
 	
 //getter and setter methods
+	
+
 public int getProject_id() {
 	return Project_id;
+}
+@Override
+public String toString() {
+	return "Project [Name=" + Name + ", Description=" + Description + "]";
 }
 public void setProject_id(int project_id) {
 	Project_id = project_id;

@@ -172,14 +172,14 @@ public class UserInteraction {
 		EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
 		switch (choice) {
 		case 1:System.out.println("ENTER THE EMAIL ID");
-			   String email = s.next();
+			String email = s.next();
 			   empsvc.SearchEmployee(email);
 			   break;
 
 		case 2:System.out.println("ENTER THE KINID ");
-		   String kinid  = s.next();
-		   empsvc.SearchEmployee(kinid );
-		   break;
+				String kinid  = s.next();
+				empsvc.SearchEmployee(kinid );
+				break;
 		case 3:System.out.println("ENTER THE NAME ");
 		   String name = s.next();
 		   empsvc.SearchEmployee(name );

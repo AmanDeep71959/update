@@ -27,11 +27,10 @@ public class Employee {
 public String toString() {
 	return "Employee [Name=" + Name + ", Kin_id=" + Kin_id + ", Email_id=" + Email_id + ", Phone_no=" + Phone_no
 			+ ", Date_of_birth=" + Date_of_birth + ", Date_of_Joining=" + Date_of_Joining + ", Address=" + Address
-			+ ", Department_id=" + Department_id + ", Project_id=" + Project_id + ", Roles_id=" + Role_id
-			+ ", department=" + department + ", project=" + project + ", role=" + role + "]";
+			+ ", Department_id=" + Department_id + ", Project_id=" + Project_id + ", Role_id=" + Role_id + "]";
 }
 
-	
+
 	public Department getDepartment() {
 		return department;
 	}

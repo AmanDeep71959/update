@@ -1,11 +1,17 @@
 package com.flp.ems.domain;
 
 public class Department {
+
 int Department_id;
 String Name;
 String Description;
 
 
+
+@Override
+public String toString() {
+	return "Department [Department_Name=" + Name + ",Description=" + Description + "]";
+}
 public int getDepartment_id() {
 	return Department_id;
 }

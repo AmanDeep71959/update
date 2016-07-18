@@ -74,6 +74,9 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 		for(Employee emp:arrlist)
 		{
 			System.out.println(emp);
+			System.out.println(emp.getDepartment());
+			System.out.println(emp.getProject());
+			System.out.println(emp.getRole());
 		}
 		
 	}
