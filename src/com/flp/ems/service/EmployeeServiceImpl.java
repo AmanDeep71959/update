@@ -46,80 +46,82 @@ public class EmployeeServiceImpl implements IEmployeeService{
 		
 		
 		Department dept=new Department();
-		emp.setDepartment(dept);
 		
 		switch(emp.getDepartment_id())
 		{
 			case 1:
-				emp.getDepartment().setDepartment_id((Integer)hmap.get(8));
-				emp.getDepartment().setName("Financial Services");
-				emp.getDepartment().setDescription("Fs is important department");
+				dept.setDepartment_id(emp.getDepartment_id());
+				dept.setName("Financial Services");
+				dept.setDescription("Fs is important department");
 				break;
 			case 2:
-				emp.getDepartment().setDepartment_id((Integer)hmap.get(8));
-				emp.getDepartment().setName("Non Financial Services");
-				emp.getDepartment().setDescription("NFs is important department");
+				dept.setDepartment_id(emp.getDepartment_id());
+				dept.setName("Non Financial Services");
+				dept.setDescription("NFs is important department");
 				break;
 		}
 		
+		emp.setDepartment(dept);
 		
 		Project proj=new Project();
-		emp.setProject(proj);
+		
 		switch(emp.getProject_id())
 		{
 			case 50:
-				emp.getProject().setProject_id((Integer)hmap.get(9));
-				emp.getProject().setName("Java");
-				emp.getProject().setDescription("Java is everywhere");
-				emp.getProject().setDepartment_id((Integer)hmap.get(8));
+				proj.setProject_id(emp.getProject_id());
+				proj.setName("Java");
+				proj.setDescription("Java is everywhere");
+				proj.setDepartment_id(emp.getDepartment_id());
 				break;
 			case 51:
-				emp.getProject().setProject_id((Integer)hmap.get(9));
-				emp.getProject().setName("Python");
-				emp.getProject().setDescription("Python is powerful");
-				emp.getProject().setDepartment_id((Integer)hmap.get(8));
+				proj.setProject_id(emp.getProject_id());
+				proj.setName("Python");
+				proj.setDescription("Python is powerful");
+				proj.setDepartment_id(emp.getDepartment_id());
 				break;
 			case 52:
-				emp.getProject().setProject_id((Integer)hmap.get(9));
-				emp.getProject().setName("Scala");
-				emp.getProject().setDescription("scala is best");
-				emp.getProject().setDepartment_id((Integer)hmap.get(8));
+				proj.setProject_id(emp.getProject_id());
+				proj.setName("Scala");
+				proj.setDescription("scala is best");
+				proj.setDepartment_id(emp.getDepartment_id());
 				break;
 			case 53:
-				emp.getProject().setProject_id((Integer)hmap.get(9));
-				emp.getDepartment().setName("html");
-				emp.getDepartment().setDescription("Design the page");
-				emp.getProject().setDepartment_id((Integer)hmap.get(8));
+				proj.setProject_id(emp.getProject_id());
+				proj.setName("html");
+				proj.setDescription("Design the page");
+				proj.setDepartment_id(emp.getDepartment_id());
 				break;
 		}
+		
+		emp.setProject(proj);
 		
 		Role role=new Role();
-		emp.setRole(role);
-		switch(emp.getProject_id())
+		
+		switch(emp.getRole_id())
 		{
 			case 100:
-				emp.getRole().setRole_id((Integer)hmap.get(10));
-				emp.getRole().setName("Developer");
-				emp.getRole().setDescription("Dev");
+				role.setRole_id(emp.getRole_id());
+				role.setName("Developer");
+				role.setDescription("Dev");
 				break;
 			case 101:
-				emp.getRole().setRole_id((Integer)hmap.get(10));
-				emp.getRole().setName("tester");
-				emp.getRole().setDescription("test");
+				role.setRole_id(emp.getRole_id());
+				role.setName("tester");
+				role.setDescription("test");
 				break;
 			case 102:
-				emp.getRole().setRole_id((Integer)hmap.get(10));
-				emp.getRole().setName("Database");
-				emp.getRole().setDescription("Data");
+				role.setRole_id(emp.getRole_id());
+				role.setName("Database");
+				role.setDescription("Data");
 				break;
 			case 103:
-				emp.getRole().setRole_id((Integer)hmap.get(10));
-				emp.getRole().setName("Maintainence");
-				emp.getRole().setDescription("Maintain");
+				role.setRole_id(emp.getRole_id());
+				role.setName("Maintainence");
+				role.setDescription("Maintain");
 				break;
 		}
 		
-		
+		emp.setRole(role);
 		
 		EmployeeDaoImplForList empdao=new EmployeeDaoImplForList();
 		empdao.AddEmployee(emp);

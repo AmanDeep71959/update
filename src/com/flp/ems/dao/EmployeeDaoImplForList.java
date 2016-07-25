@@ -15,7 +15,7 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 		System.out.println("Employee added");
 		
 	}
-	public void ModifyEmployee( String Kin_id,int action,String input){
+	public void ModifyEmployee(String Kin_id,int action,String input){
 		Employee e=null;
 		for(Employee emp:arrlist)
 		{
@@ -49,7 +49,9 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 		}
 		if(e!=null)
 		{arrlist.remove(e);
-		System.out.println("Employee Removed");}		
+		System.out.println("Employee Removed");}
+		else
+		System.out.println("Kin_id does'nt exists");
 	}
 		
 	public void SearchEmployee(String search)
@@ -57,13 +59,11 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 		//Employee e=null;
 		for(Employee emp:arrlist)
 		{	 
-			String temp1=emp.getEmail_id();
-			String temp2=emp.getKin_id();
-			String temp3=emp.getName();
-			if(temp1.equals(search)|| temp2.equals(search)||temp3.equals(search))
-					
-				//e=emp;
-				System.out.println(emp);
+			String Email_id=emp.getEmail_id();
+			String Kin_id=emp.getKin_id();
+			String Name=emp.getName();
+			if(Email_id.equals(search)|| Kin_id.equals(search)|| Name.equals(search))
+				System.out.println(emp.getKin_id());
 		}
 			//if(e!=null)
 			//System.out.println(e);

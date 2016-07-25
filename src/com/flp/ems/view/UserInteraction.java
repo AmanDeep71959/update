@@ -15,7 +15,7 @@ import com.flp.ems.util.Validate;
 
 public class UserInteraction {
 
-	static Scanner s=new Scanner(System.in);
+	
 	public static boolean AddEmployee()
 	{
 		HashMap<Integer,Object> hmap= new HashMap<Integer,Object>();
@@ -27,7 +27,7 @@ public class UserInteraction {
 		if(Validate.validateName(Name))
 		hmap.put(1,Name);
 		else	
-		{System.out.println("Invalid Input");return false;}
+		{System.out.println("Invalid Name");return false;}
 		
 		//Kin_id Input
 		System.out.println("Enter the kin_id(alphanumeric and specialchar( _ ))");
@@ -35,7 +35,7 @@ public class UserInteraction {
 		if(Validate.validateKin_id(Kin_id))
 			hmap.put(2,Kin_id);
 		else
-		{System.out.println("Invalid Input");return false;}
+		{System.out.println("Invalid Kin_id");return false;}
 		
 		//Email_id input
 		System.out.println("Enter the Email_id");
@@ -51,7 +51,7 @@ public class UserInteraction {
 		if(Validate.validatePhone_no(phone_no))
 			hmap.put(4,phone_no);
 		else
-		{System.out.println("Invalid Input");
+		{System.out.println("Enter a correct phone no");
 		return false;}
 		
 		//Date of Birth Input
@@ -60,7 +60,7 @@ public class UserInteraction {
 		if(Validate.validateDate_of_birth(Date))
 			hmap.put(5,Date);
 		else
-			{System.out.println("Invalid Input");return false;}
+			{System.out.println("Invalid Date of birth");return false;}
 	
 		//Date of Joining Input
 		System.out.println("Enter the Date Of Joining(d-M-y format)");
@@ -68,7 +68,7 @@ public class UserInteraction {
 		if(Validate.validateDate_of_Joining(Doj))
 			hmap.put(6,Doj);
 		else
-			{System.out.println("Invalid Input");return false;}
+			{System.out.println("Invalid Date of joining");return false;}
 		
 		//Address Input
 		System.out.println("Enter the Address(only alphanumeric and special char(- ,))");
@@ -76,7 +76,7 @@ public class UserInteraction {
 		if(Validate.validateaddress(address))
 			hmap.put(7,address);
 		else
-			{System.out.println("Invalid Input");return false;}
+			{System.out.println("Invalid Address");return false;}
 		
 		//Department_id Input
 		System.out.println("Select the Department number");
@@ -88,7 +88,7 @@ public class UserInteraction {
 			{System.out.println("Enter the valid Department Number");return false;}
 		
 		//Project_id Input
-		System.out.println("select the project ");
+		System.out.println("select the project number");
 		int Project_id;
 		switch(Department_id)
 		{
@@ -98,7 +98,7 @@ public class UserInteraction {
 			if(Validate.validateProject_id(Project_id))
 			hmap.put(9,Project_id);
 			else
-			{System.out.println("Invalid Input");return false;}
+			{System.out.println("Invalid Project No.");return false;}
 			break;
 		case 2:
 			System.out.println("52- scala    53-html");
@@ -106,23 +106,22 @@ public class UserInteraction {
 			if(Validate.validateProject_id(Project_id))
 			hmap.put(9,Project_id);
 			else
-			{System.out.println("Invalid Input");return false;}
+			{System.out.println("Invalid Project No.");return false;}
 			break;
 		}
 	
-		System.out.println("select the role");
+		System.out.println("select the role number");
 		System.out.println("100- developer    101-Tester    102-Database  103-Maintainence ");
 		int role_id=s.nextInt();
 		if(Validate.validateRole_id(role_id))
 		hmap.put(10,role_id);
 		else
-		{System.out.println("Invalid Input");return false;}
+		{System.out.println("Invalid Role No");return false;}
 
-		
-		
 		
 		EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
 		empsvc.AddEmployee(hmap);
+		s.close();
 		return true;	
 }
 	public static void ModifyEmployee()
@@ -130,25 +129,27 @@ public class UserInteraction {
 	 System.out.println("Enter the employee Kin_id to modify");
 	 	Scanner s=new Scanner(System.in);
 		String Kin_id=s.next();
-		 System.out.println("1-Name 2-Date_of_Birth 3-Phone no 4");
+		 System.out.println("1-Name 2-Date_of_Birth 3-Phone no ");
 		 int input=s.nextInt();
+		 EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
 		 switch(input)
 		 {
 		 case 1:{System.out.println("Enter the Name");
 		 		String Name=s.next();
-		 		EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
 		 		empsvc.ModifyEmployee(Kin_id,input,Name);break;}
 		 case 2:{System.out.println("Enter the Date of birth");
-		 		String Name=s.next();
-		 		EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
-		 		empsvc.ModifyEmployee(Kin_id,input,Name);break;}
+		 		String Dob=s.next();
+		 		empsvc.ModifyEmployee(Kin_id,input,Dob);break;}
 		 case 3:{System.out.println("Enter the Phone no");
-	 			String Name=s.next();
-	 			EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
-	 			empsvc.ModifyEmployee(Kin_id,input,Name);break;}
+	 			String Phone_no=s.next();
+	 			empsvc.ModifyEmployee(Kin_id,input,Phone_no);break;}
+		 case 4:{System.out.println("");
+			 
+		 }
 		 default:
 			 	System.out.println("Invalid Input");break;
 		 }
+		 s.close();
 		 }
 	
 	public static void RemoveEmployee()
@@ -158,6 +159,7 @@ public class UserInteraction {
 		String Kin_id=s.next();
 		EmployeeServiceImpl empsvc=new EmployeeServiceImpl();
 		empsvc.RemoveEmployee(Kin_id);
+		s.close();
 	
 	}
 	
@@ -173,21 +175,20 @@ public class UserInteraction {
 		switch (choice) {
 		case 1:System.out.println("ENTER THE EMAIL ID");
 			String email = s.next();
-			   empsvc.SearchEmployee(email);
-			   break;
-
+			empsvc.SearchEmployee(email);
+			break;
 		case 2:System.out.println("ENTER THE KINID ");
-				String kinid  = s.next();
-				empsvc.SearchEmployee(kinid );
-				break;
+			String kinid  = s.next();
+			empsvc.SearchEmployee(kinid );
+			break;
 		case 3:System.out.println("ENTER THE NAME ");
-		   String name = s.next();
-		   empsvc.SearchEmployee(name );
-		   break;
+		   	String name = s.next();
+		   	empsvc.SearchEmployee(name );
+		    break;
+		default:
+			System.out.println("Invalid Input");
 		}
-		
-		
-		
+			s.close();
 	}
 	
 	public static void GetAllEmployee(){
